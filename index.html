@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Alessandro Adorante — producer and videographer. Documentary, broadcast and corporate storytelling across Canada and the United States.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Alessandro Adorante — Producer &amp; Videographer">
+<meta property="og:description" content="Documentary, broadcast and corporate storytelling across Canada and the United States.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+<title>Alessandro Adorante — Producer &amp; Videographer</title>
+
+<style>
+  /* ============================================================
+     TOKENS
+     ============================================================ */
+  :root {
+    --ink:        #0C0E11;
+    --ink-2:      #14181D;
+    --ink-3:      #1D232A;
+    --paper:      #E6E8EA;
+    --paper-2:    #D7DBDF;
+    --fg:         #EDEFF1;
+    --fg-muted:   #97A1AC;
+    --fg-faint:   #5E6772;
+    --rule:       #232A32;
+    --accent:     #6E9DBC;
+    --accent-ink: #3E6C8B;
+    --tungsten:   #C8A063;
+
+    --bg:         var(--ink);
+    --surface:    var(--ink-2);
+    --surface-2:  var(--ink-3);
+    --text:       var(--fg);
+    --text-muted: var(--fg-muted);
+    --text-faint: var(--fg-faint);
+    --line:       var(--rule);
+    --link:       var(--accent);
+
+    --display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+    --measure: 63ch;
+    --gutter: clamp(1.25rem, 4vw, 3.5rem);
+    --maxw: 1440px;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg:         var(--paper);
+      --surface:    #F2F4F5;
+      --surface-2:  #DFE3E6;
+      --text:       #10151A;
+      --text-muted: #4A555F;
+      --text-faint: #78838D;
+      --line:       #C4CBD1;
+      --link:       var(--accent-ink);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: var(--ink); --surface: var(--ink-2); --surface-2: var(--ink-3);
+    --text: var(--fg); --text-muted: var(--fg-muted); --text-faint: var(--fg-faint);
+    --line: var(--rule); --link: var(--accent);
+  }
+  :root[data-theme="light"] {
+    --bg: var(--paper); --surface: #F2F4F5; --surface-2: #DFE3E6;
+    --text: #10151A; --text-muted: #4A555F; --text-faint: #78838D;
+    --line: #C4CBD1; --link: var(--accent-ink);
+  }
+
+  /* ============================================================
+     BASE
+     ============================================================ */
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img, iframe { display: block; max-width: 100%; }
+
+  a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .shell {
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin: 0;
+  }
+
+  /* ============================================================
+     MASTHEAD
+     ============================================================ */
+  .masthead {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .masthead__inner {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: 0.95rem;
+  }
+  .wordmark {
+    font-family: var(--display);
+    font-size: 1.02rem;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .wordmark em { font-style: normal; color: var(--text-faint); }
+  .navlinks {
+    display: flex;
+    gap: clamp(0.9rem, 2.5vw, 2rem);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .navlinks a { color: var(--text-muted); text-decoration: none; }
+  .navlinks a:hover { color: var(--text); }
+
+  /* ============================================================
+     HERO — the reel is the thesis
+     ============================================================ */
+  .hero { padding-block: clamp(1.75rem, 4vw, 3rem) 0; }
+
+  .hero__frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .hero__frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .hero__bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem 2rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--line);
+    margin-top: -1px;
+  }
+  .hero__title {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(2rem, 6vw, 3.75rem);
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    margin: 0.35rem 0 0;
+    text-wrap: balance;
+  }
+  .hero__role {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--tungsten);
+    margin: 0;
+  }
+  .hero__meta {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    text-align: right;
+  }
+
+  .lede {
+    max-width: var(--measure);
+    font-size: clamp(1.02rem, 1.5vw, 1.16rem);
+    line-height: 1.62;
+    color: var(--text-muted);
+    margin: clamp(1.75rem, 4vw, 3rem) 0 0;
+  }
+  .lede strong { color: var(--text); font-weight: 600; }
+
+  /* ============================================================
+     SECTION SCAFFOLD
+     ============================================================ */
+  .section { padding-block: clamp(3.5rem, 9vw, 7rem); }
+  .section__head {
+    display: flex;
+    align-items: baseline;
+    gap: 1.25rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.8rem;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .section__title {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(1.4rem, 2.6vw, 2rem);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .section__count {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    color: var(--text-faint);
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  /* ============================================================
+     WORK GRID — every tile identical
+     ============================================================ */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+    gap: clamp(1.5rem, 3.2vw, 2.75rem) clamp(1.25rem, 2.4vw, 2rem);
+  }
+
+  .tile { display: flex; flex-direction: column; }
+
+  .tile__frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .tile__frame iframe,
+  .tile__frame img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    object-fit: cover;
+  }
+
+  /* poster facade — nothing streams until asked */
+  .poster {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    background:
+      radial-gradient(120% 90% at 50% 12%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 62%),
+      linear-gradient(168deg, var(--surface-2), var(--surface));
+    transition: filter .35s ease;
+  }
+  .poster::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(90deg, color-mix(in srgb, var(--text) 6%, transparent) 0 1px, transparent 1px 34px);
+    opacity: .5;
+  }
+  .poster:hover { filter: brightness(1.14); }
+  .poster__play {
+    position: relative;
+    z-index: 1;
+    width: 54px; height: 54px;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    border: 1px solid color-mix(in srgb, var(--text) 38%, transparent);
+    background: color-mix(in srgb, var(--bg) 55%, transparent);
+    transition: transform .3s cubic-bezier(.2,.7,.3,1), border-color .3s ease;
+  }
+  .poster:hover .poster__play {
+    transform: scale(1.09);
+    border-color: var(--accent);
+  }
+  .poster__play svg { width: 15px; height: 15px; margin-left: 2px; fill: var(--text); }
+
+  .tile__caption {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    padding-top: 0.7rem;
+  }
+  .tile__idx {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--text-faint);
+    font-variant-numeric: tabular-nums;
+    padding-top: 0.22rem;
+  }
+  .tile__name {
+    font-family: var(--display);
+    font-size: 1.06rem;
+    line-height: 1.28;
+    margin: 0;
+    font-weight: 400;
+    text-wrap: balance;
+  }
+  .tile__meta {
+    font-family: var(--mono);
+    font-size: 0.67rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin: 0.28rem 0 0;
+  }
+
+  /* the vertical piece keeps 9:16 and matches row height */
+  .tile--vertical .tile__frame {
+    aspect-ratio: 9 / 16;
+    max-width: 270px;
+  }
+
+  /* ============================================================
+     ABOUT — set like end credits
+     ============================================================ */
+  .credits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: clamp(1.75rem, 4vw, 3.25rem);
+  }
+  .credits__block h3 {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    font-weight: 500;
+    margin: 0 0 0.85rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .credits__block ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
+  .credits__block li { font-size: 0.94rem; line-height: 1.45; }
+  .credits__block li b {
+    display: block;
+    font-family: var(--display);
+    font-size: 1.02rem;
+    font-weight: 400;
+    color: var(--text);
+  }
+  .credits__block li span { color: var(--text-muted); font-size: 0.88rem; }
+  .credits__block p { margin: 0; color: var(--text-muted); font-size: 0.94rem; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tags span {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    border: 1px solid var(--line);
+    padding: 0.24rem 0.55rem;
+  }
+
+  /* ============================================================
+     CONTACT + FOOT
+     ============================================================ */
+  .contact { display: grid; gap: 1.4rem; max-width: var(--measure); }
+  .contact__mail {
+    font-family: var(--display);
+    font-size: clamp(1.5rem, 4.5vw, 2.6rem);
+    line-height: 1.1;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.3rem;
+    width: fit-content;
+    max-width: 100%;
+    word-break: break-word;
+    transition: border-color .25s ease, color .25s ease;
+  }
+  .contact__mail:hover { border-color: var(--accent); color: var(--accent); }
+
+  .foot {
+    border-top: 1px solid var(--line);
+    padding-block: 1.5rem 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.5rem;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+</head>
+<body>
+<header class="masthead">
+  <div class="shell masthead__inner">
+    <a class="wordmark" href="#top">Alessandro Adorante <em>— Producer &amp; Videographer</em></a>
+    <nav class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero shell">
+    <div class="hero__frame">
+      <iframe
+        src="https://www.youtube.com/embed/XVwG7wdB8Gw?autoplay=1&mute=1&loop=1&playlist=XVwG7wdB8Gw&controls=0&playsinline=1&rel=0&modestbranding=1"
+        title="Portfolio Reel 2026"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+
+    <div class="hero__bar">
+      <div>
+        <p class="hero__role">Showreel — 2026</p>
+        <h1 class="hero__title">Documentary, broadcast&nbsp;&amp;<br>corporate storytelling</h1>
+      </div>
+      <p class="hero__meta">Toronto&nbsp;/&nbsp;Waterloo<br>Canada &amp; United States</p>
+    </div>
+
+    <p class="lede">
+      Producer and videographer with over four years of experience creating television,
+      documentary, corporate and digital media content across Canada and the United States.
+      <strong>Currently producing a feature-length documentary</strong> on the creation of
+      Canada's first national hockey program.
+    </p>
+  </section>
+
+  <section class="section shell" id="work">
+    <div class="section__head">
+      <h2 class="section__title">Selected Work</h2>
+      <span class="section__count" id="workCount"></span>
+    </div>
+    <div class="grid" id="workGrid"></div>
+  </section>
+
+  <section class="section shell" id="about">
+    <div class="section__head">
+      <h2 class="section__title">About</h2>
+      <span class="section__count">Producer · Videographer · Editor</span>
+    </div>
+
+    <div class="credits">
+      <div class="credits__block">
+        <h3>Experience</h3>
+        <ul>
+          <li>
+            <b>Producer</b>
+            <span>Le Ross Media — feature documentary on Canada's first national hockey
+            program. Archival research, production planning, stakeholder engagement,
+            fundraising and story development with partners across Canada.</span>
+          </li>
+          <li>
+            <b>Associate Producer &amp; Production Assistant</b>
+            <span>Salt + Light Media Foundation — 15+ bilingual stories for <i>behold</i>,
+            across documentary, interview, profile and archival formats for national
+            television and digital audiences.</span>
+          </li>
+          <li>
+            <b>Videographer</b>
+            <span>Freelance — corporate, nonprofit and media clients including the Knights of
+            Columbus and the University of Waterloo. Concept through final delivery.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="credits__block">
+        <h3>Recognition</h3>
+        <ul>
+          <li><b>Gabriel Award — Runner Up</b><span>2026 · Associate Producer, SLmedia — <i>behold</i></span></li>
+          <li><b>Gradflix Competition</b><span>2025 · 2nd Place and People's Choice Award</span></li>
+        </ul>
+        <h3 style="margin-top:1.75rem">Education</h3>
+        <ul>
+          <li><b>MSc Neuroscience</b><span>University of Waterloo — candidate</span></li>
+          <li><b>BSc Honours Kinesiology, Co-op</b><span>University of Waterloo</span></li>
+        </ul>
+      </div>
+
+      <div class="credits__block">
+        <h3>Craft</h3>
+        <div class="tags">
+          <span>DaVinci Resolve</span><span>Final Cut Pro</span><span>Adobe Creative Suite</span>
+          <span>CapCut</span><span>Camera Operation</span><span>Audio Capture</span>
+          <span>Interview Lighting</span><span>Documentary Production</span>
+          <span>Podcast Production</span><span>Production Coordination</span>
+          <span>R</span><span>Python</span>
+        </div>
+        <h3 style="margin-top:1.75rem">Clients &amp; Partners</h3>
+        <p>Knights of Columbus · Salt + Light Media · University of Waterloo ·
+           St. Mark's College UBC · St. Jerome's University · Le Ross Media</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shell" id="contact">
+    <div class="section__head">
+      <h2 class="section__title">Contact</h2>
+      <span class="section__count">Available for commissions</span>
+    </div>
+    <div class="contact">
+      <p class="lede" style="margin:0">
+        Available for documentary, broadcast, corporate and nonprofit production
+        across Canada and the United States.
+      </p>
+      <a class="contact__mail" href="mailto:adorantemedia@gmail.com">adorantemedia@gmail.com</a>
+    </div>
+  </section>
+
+  <footer class="shell foot">
+    <span>© 2026 Alessandro Adorante</span>
+    <span>Producer &amp; Videographer</span>
+  </footer>
+</main>
+
+<script>
+  /* ============================================================
+     EDIT HERE — this array is the whole site's content.
+     Add, remove or reorder entries and the grid rebuilds itself.
+       id       YouTube video ID (the part after v= in the URL)
+       title    shown under the tile
+       client   left half of the metadata line
+       role     right half of the metadata line
+       vertical true only for 9:16 Shorts
+     ============================================================ */
+  const WORK = [
+    { id: "t5Ky35jIWXY", title: "behold — Father David Bauer",                 client: "Salt + Light Media", role: "Associate Producer" },
+    { id: "ELfMYOujzxQ", title: "Knights Make Historic Journey to Northern Manitoba", client: "Knights of Columbus", role: "Videographer" },
+    { id: "qoNgTLwxKp8", title: "Family Prayer Program Inspires Healing and Faith",   client: "Knights of Columbus", role: "Videographer" },
+    { id: "juSrsJjbB9w", title: "59th Saskatoon Indoor Games",                  client: "Knights of Columbus", role: "Videographer" },
+    { id: "f_ldsx0tUlM", title: "The School of Anatomy",                        client: "University of Waterloo", role: "Videographer" },
+    { id: "exVMwGU67Tg", title: "behold — Interview Reel",                      client: "Salt + Light Media", role: "Vertical cut", vertical: true }
+  ];
+
+  const grid = document.getElementById("workGrid");
+  const PLAY = '<svg viewBox="0 0 12 14" aria-hidden="true"><path d="M0 0l12 7-12 7z"/></svg>';
+
+  WORK.forEach((item, i) => {
+    const tile = document.createElement("article");
+    tile.className = "tile" + (item.vertical ? " tile--vertical" : "");
+
+    const frame = document.createElement("div");
+    frame.className = "tile__frame";
+
+    const btn = document.createElement("button");
+    btn.className = "poster";
+    btn.type = "button";
+    btn.setAttribute("aria-label", "Play " + item.title);
+    btn.innerHTML = '<span class="poster__play">' + PLAY + '</span>';
+
+    btn.addEventListener("click", () => {
+      const f = document.createElement("iframe");
+      f.src = "https://www.youtube.com/embed/" + item.id +
+              "?autoplay=1&playsinline=1&rel=0&modestbranding=1";
+      f.title = item.title;
+      f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+      f.setAttribute("allowfullscreen", "");
+      frame.replaceChildren(f);
+    });
+
+    frame.appendChild(btn);
+
+    const cap = document.createElement("div");
+    cap.className = "tile__caption";
+    cap.innerHTML =
+      '<span class="tile__idx">' + String(i + 1).padStart(2, "0") + '</span>' +
+      '<div><h3 class="tile__name"></h3><p class="tile__meta"></p></div>';
+    cap.querySelector(".tile__name").textContent = item.title;
+    cap.querySelector(".tile__meta").textContent = item.client + " · " + item.role;
+
+    tile.append(frame, cap);
+    grid.appendChild(tile);
+  });
+
+  document.getElementById("workCount").textContent =
+    String(WORK.length).padStart(2, "0") + " films";
+</script>
+</body>
+</html>
